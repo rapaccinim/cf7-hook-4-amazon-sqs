@@ -73,8 +73,8 @@ function cf7_amazon_sqs($contact_form){
 	// this is the url for the Amazon SQS
 	$queueUrl = 'yourAmazonSQSURL';
 
-	// if the form has the right title
-	if (strpos($title, 'CustomSimecomForm4SQS')){
+	// if the form contains the right title
+	if (strpos($title, 'TitleCustomString') !== false){
 
 		// this is the submission instance
 		$submission = WPCF7_Submission::get_instance();

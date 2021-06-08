@@ -3,21 +3,19 @@
 /*
  
 Plugin Name: CF7 hook for SQS
- 
+
 Plugin URI: https://www.marcorapaccini.it
- 
+
 Description: Amazon SQS Hook for Contact Form 7
- 
+
 Version: 1.0.0
- 
+
 Author: Marco Rapaccini
- 
+
 Author URI: https://www.marcorapaccini.it
- 
+
 License: MIT
- 
-Text Domain: prefix-plugin-name
- 
+
 */
 
 // we need composer stuff
@@ -27,7 +25,7 @@ require 'vendor/autoload.php';
 use Aws\Sqs\SqsClient; 
 use Aws\Exception\AwsException;
 
-// when user post data in the CF7 form...
+// [OPTIONAL] when user post data in the CF7 form...
 add_filter('wpcf7_posted_data','add_custom_field');
 
 // ...trigger the following function that adds a custom field with MD5 value
@@ -90,8 +88,8 @@ function cf7_amazon_sqs($contact_form){
 			$surname = $posted_data['surname'];
 			$email = $posted_data['email'];			
 			$phone = $posted_data['phone'];
-			$city = $posted_data['comune'];
-			$county = $posted_data['provincia'];
+			$city = $posted_data['city'];
+			$county = $posted_data['county'];
 
 			$md5_string = $posted_data['custom_unique_id_4_SQS'];
 
